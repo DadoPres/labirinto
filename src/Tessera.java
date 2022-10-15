@@ -27,25 +27,42 @@ public class Tessera {
                 if(k % 2 == 0 && k != 4){
                     res[i][j] = '#';
                 }
-                //Scrivo le aperture
-                res[0][1] = aperture[0].isAperta() ? ' ' : '#';
-                res[1][2] = aperture[1].isAperta() ? ' ' : '#';
-                res[2][1] = aperture[2].isAperta() ? ' ' : '#';
-                res[1][0] = aperture[3].isAperta() ? ' ' : '#';
-                //Scrivo il centro
-                if(tesoro.isPresente()){
-                    if(tesoro.getDimensione() == Dimensione.PICCOLO){
-                        res[1][1] = '*';
-                    }
-                    if(tesoro.getDimensione() == Dimensione.GRANDE){
-                        res[1][1] = '@';
-                    }
-                }
-                else{
-                    res[1][1] = ' ';
-                }
             }
         }
+
+        //Scrivo le aperture
+        res[0][1] = aperture[0].isAperta() ? ' ' : '#';
+        res[1][2] = aperture[1].isAperta() ? ' ' : '#';
+        res[2][1] = aperture[2].isAperta() ? ' ' : '#';
+        res[1][0] = aperture[3].isAperta() ? ' ' : '#';
+
+        //Scrivo il centro
+        if(tesoro.isPresente()){
+            if(tesoro.getDimensione() == Dimensione.PICCOLO){
+                res[1][1] = '*';
+            }
+            if(tesoro.getDimensione() == Dimensione.GRANDE){
+                res[1][1] = '@';
+            }
+        }
+        else{
+            res[1][1] = ' ';
+        }
         return res;
+    }
+
+    public void setAperture(Apertura[] ap){
+        aperture = ap;
+    }
+
+    public void setTesoro(Tesoro tes){
+        tesoro = tes;
+    }
+
+    public TesseraEsterna tessToTessEst(){
+        TesseraEsterna est = new TesseraEsterna();
+        est.setAperture(this.aperture);
+        est.setTesoro(this.tesoro);
+        return est;
     }
 }

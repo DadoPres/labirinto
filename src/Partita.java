@@ -8,14 +8,16 @@ public class Partita {
         this.giocatore = new Giocatore();
     }
 
-    public void stampaTurno(){
+    private void stampaTurno(){
         giocatore.stampaInfo();
         labirinto.stampa(giocatore.getPosizione());
         labirinto.getTesseraEsterna().stampa();
     }
 
-
-
-
-
+    public void gioca(){
+        boolean inGioco = true;
+        while(inGioco){
+            stampaTurno();
+        }
+    }
 }

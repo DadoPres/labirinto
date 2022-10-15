@@ -9,13 +9,6 @@ public class Giocatore {
         this.posizione = new Posizione();
     }
 
-    public void setVita(int vita) {
-        this.vita = vita;
-    }
-
-    public void setPunteggio(int punteggio) {
-        this.punteggio = punteggio;
-    }
 
     public void setPosizione(Posizione posizione) {
         this.posizione = posizione;
